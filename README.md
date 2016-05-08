@@ -1,15 +1,15 @@
 # Struts2 + Spring + HibernateCRUD
 
 
-This is a project based on *Struts2 Spring* and *Hibernate* framework. 
+This is a project based on **Struts2 Spring** and **Hibernate** framework. 
 
-It implemented *create, read, update and delete* function.
+It implemented **create, read, update and delete** function.
 
-Front end used *bootstrap* for UI. 
+Front end used **bootstrap** for UI. 
 
-IDE: Intellij.
+IDE: **Intellij**.
 
-Project Management: Maven.
+Project Management: **Maven**.
 
 Screenshot: 
 
