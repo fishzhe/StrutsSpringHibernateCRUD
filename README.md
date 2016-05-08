@@ -1,4 +1,4 @@
-# Struts2 + Spring + HibernateCRUD
+### Struts2 + Spring + HibernateCRUD
 
 
 This is a project based on **Struts2 Spring** and **Hibernate** framework. 
