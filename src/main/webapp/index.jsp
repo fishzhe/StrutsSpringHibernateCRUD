@@ -66,6 +66,7 @@
                         <input class="form-control" type="text" name="user.name" value="<s:property value="#user.name" />"/>
                     </td>
                     <td>
+                        <!--TODO: After UserService's todo, phone number retrieve should be not formatted. Add foramtter here-->
                         <input class="form-control" type="text" name="user.phone" value="<s:property value="#user.phone"/>"/>
                     </td>
                     <td>

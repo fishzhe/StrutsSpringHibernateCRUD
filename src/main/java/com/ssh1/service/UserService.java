@@ -12,4 +12,5 @@ public interface UserService {
     List<User> listAllUser();
     User listUserByName(String name);
     boolean deleteUser(int userId);
+    // TODO: add phone number cleaner to make sure the number store in database dont have special format. Make it always run before save or update.
 }
