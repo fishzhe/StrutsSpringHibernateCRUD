@@ -17,20 +17,29 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
             integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+    <!-- bootstrap form helper -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-formhelpers/2.3.0/css/bootstrap-formhelpers.min.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-formhelpers/2.3.0/js/bootstrap-formhelpers.min.js"></script>
+
+    <script type="text/javascript" src="js/validator.js"></script>
 </head>
 <body>
 <div id="saveUserContainer" class="form-group" style="width:60%; margin-top: 20px; margin-left: 20px">
-    <form action="saveUser" method="post">
+    <form action="saveUser" method="post" data-toggle="validator" role="form">
         <div class="form-group row">
             <label for="name" class="col-sm-2 form-control-label">Name: </label>
             <div class="col-sm-10">
-                <input id="name" class="form-control" type="text" name="user.name" placeholder="User Name"/>
+                <input id="name" class="form-control" data-error="User Name is required"
+                       type="text" name="user.name" placeholder="User Name" required/>
+                <div class="help-block with-errors"></div>
             </div>
         </div>
         <div class="form-group row">
             <label for="phone" class="col-sm-2 form-control-label">Phone: </label>
             <div class="col-sm-10">
-                <input id="phone" class="form-control" type="text" name="user.phone" placeholder="Phone Number" />
+                <input id="phone" class="form-control bfh-phone"
+                       data-country="US" type="text" name="user.phone" placeholder="Phone Number" />
             </div>
         </div>
         <div class="form-group row">

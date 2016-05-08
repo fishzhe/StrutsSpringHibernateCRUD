@@ -1,8 +1,8 @@
 package com.ssh1.action;
 
 import com.opensymphony.xwork2.ActionSupport;
-import com.ssh1.dao.UserDao;
 import com.ssh1.model.User;
+import com.ssh1.service.UserService;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
@@ -37,14 +37,14 @@ public class UserAction extends ActionSupport {
     }
 
     @Autowired
-    private UserDao userDao;
+    private UserService userService;
 
     @Action(value = "listUser", results = {
             @Result(name = SUCCESS, location = "/index.jsp"),
             @Result(name = INPUT, location = "/index.jsp")
     })
     public String listUser() {
-        users = userDao.listAllUser();
+        users = userService.listAllUser();
         return SUCCESS;
     }
 
@@ -54,7 +54,7 @@ public class UserAction extends ActionSupport {
 
     })
     public String saveUser() {
-        userDao.saveUser(user);
+        userService.saveUser(user);
         return SUCCESS;
     }
 
@@ -64,7 +64,7 @@ public class UserAction extends ActionSupport {
 
     })
     public String deleteUser() {
-        userDao.deleteUser(user.getId());
+        userService.deleteUser(user.getId());
         return SUCCESS;
     }
 

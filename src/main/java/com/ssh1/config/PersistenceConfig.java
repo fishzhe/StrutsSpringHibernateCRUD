@@ -66,6 +66,7 @@ public class PersistenceConfig {
         hibernateTransactionManager.setDataSource(dataSource());
         return hibernateTransactionManager;
     }
+
     @Bean
     @Autowired
     public UserDao userDao(SessionFactory sessionFactory) {
@@ -73,4 +74,5 @@ public class PersistenceConfig {
         userDao.setSessionFactory(sessionFactory);
         return userDao;
     }
+
 }
