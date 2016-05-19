@@ -6,6 +6,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <script src="https://code.jquery.com/jquery-2.2.3.min.js"
             integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
           integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -23,6 +24,13 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-formhelpers/2.3.0/js/bootstrap-formhelpers.min.js"></script>
 
     <script type="text/javascript" src="js/validator.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            // format phone numbers for listing form
+            $(".phone").mask("+9 (999) 999-9999")
+
+        })
+    </script>
 </head>
 <body>
 <div id="saveUserContainer" class="form-group" style="width:60%; margin-top: 20px; margin-left: 20px">
@@ -66,8 +74,8 @@
                         <input class="form-control" type="text" name="user.name" value="<s:property value="#user.name" />"/>
                     </td>
                     <td>
-                        <!--TODO: After UserService's todo, phone number retrieve should be not formatted. Add foramtter here-->
-                        <input class="form-control" type="text" name="user.phone" value="<s:property value="#user.phone"/>"/>
+                        <input class="form-control phone"
+                               data-country="US" type="text" name="user.phone" value="<s:property value="#user.phone"/>"/>
                     </td>
                     <td>
                         <a class="btn btn-warning" href="deleteUser?user.id=<s:property value="id"/>">Delete User</a>
