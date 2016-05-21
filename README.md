@@ -1,24 +1,22 @@
 ### Struts2 + Spring + HibernateCRUD
 
 
-**Framework** Struts2, Spring, Hibernate, Bootstrap 
+**Framework**: Struts2, Spring, Hibernate, Bootstrap 
 
-**IDE** Intellij
+**IDE**: Intellij
 
-**Project Management** Maven*
+**Project Management**: Maven
 
-**Basic Function** Create, Read, Update and Delete
+**Basic Function**: Create, Read, Update and Delete
 
-**New Features**
-
-Send SMS using **Twilio**
+**New Features**: Send SMS using **Twilio**
 
 **Screenshot** 
 
-Index page:
+* Index page:
 ![alt text][sshCRUD_screenshot]
 
-Send SMS Modal:
+* Send SMS Modal:
 ![alt text][sendSmsModal]
 
 [sshCRUD_screenshot]: https://github.com/fishzhe/StrutsSpringHibernateCRUD/blob/master/sshCRUD.png "CRUD screenshot"
