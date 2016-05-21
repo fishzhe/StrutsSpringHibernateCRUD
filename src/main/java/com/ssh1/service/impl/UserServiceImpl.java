@@ -1,7 +1,8 @@
-package com.ssh1.service;
+package com.ssh1.service.impl;
 
 import com.ssh1.dao.UserDao;
 import com.ssh1.model.User;
+import com.ssh1.service.UserService;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class PhoneNumberAspect {
 
-    @Pointcut(value = "execution(* com.ssh1.service.UserServiceImpl.saveUser(com.ssh1.model.User)) && args(user)")
+    @Pointcut(value = "execution(* com.ssh1.service.impl.UserServiceImpl.saveUser(com.ssh1.model.User)) && args(user)")
     public void saveUser(User user) {}
 
     @Before("saveUser(user)")
