@@ -1,21 +1,19 @@
 ### Struts2 + Spring + HibernateCRUD
 
 
-This is a project based on **Struts2 Spring** and **Hibernate** framework. 
+**Framework** Struts2, Spring, Hibernate, Bootstrap 
 
-Front end used **bootstrap** for UI. 
+**IDE** Intellij
 
-IDE: **Intellij**.
+**Project Management** Maven*
 
-Project Management: **Maven**.
-
-It implemented **create, read, update and delete** function.
+**Basic Function** Create, Read, Update and Delete
 
 **New Features**
 
 Send SMS using **Twilio**
 
-Screenshot: 
+**Screenshot** 
 
 Index page:
 ![alt text][sshCRUD_screenshot]
