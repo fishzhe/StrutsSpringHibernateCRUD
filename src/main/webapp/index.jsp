@@ -38,6 +38,7 @@
             $(".sendSms").click(function(){
                 // TODO: find out a better way to replace this complicated select element sentence.
                 var phone = $(this).parent().parent().find("td:eq(1)").find("input").val();
+              //  $('#myModal').data('bs.modal').handleUpdate();
                 $("#myModal").modal();
                 $("#modalPhone").val(phone);
             });
@@ -124,7 +125,6 @@
             </table>
         </div>
 
-    <!--TODO: looks ugly now. Make it looks better. -->
     <!-- Modal -->
     <div class="modal fade" id="myModal" role="dialog">
         <div class="modal-dialog">
@@ -135,21 +135,25 @@
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">Send SMS</h4>
                 </div>
+
+
                 <form role="form" action="sendSms" method="POST">
                     <div class="modal-body">
-                        <div class="form-group">
+                        <div class="container-fluid">
+                        <div class="form-group row">
                             <label for="modalPhone" class="col-sm-2 form-control-label">Send To: </label>
                             <div class="col-sm-10">
                                 <input id="modalPhone" name="to" class="form-control bfh-phone modal-user-phone"
-                                       data-country="US" type="text" placeholder="Phone Number"/>
+                                       data-country="US" type="text" placeholder="Phone Number" readonly/>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group row">
                             <label for="message" class="col-sm-2 form-control-label">Content: </label>
                             <div class="col-sm-10">
                                 <textarea id="message" name="message" class="form-control modal-message"
                                           data-country="US" type="text" placeholder="Enter message"></textarea>
                             </div>
+                        </div>
                         </div>
                     </div>
                     <div class="modal-footer">
