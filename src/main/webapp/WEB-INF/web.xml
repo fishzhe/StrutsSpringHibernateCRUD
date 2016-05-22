@@ -33,6 +33,10 @@
             <param-name>struts.objectFactory</param-name>
             <param-value>org.apache.struts2.spring.StrutsSpringObjectFactory</param-value>
         </init-param>
+        <init-param>
+            <param-name>struts.action.extension</param-name>
+            <param-value>,</param-value>
+        </init-param>
     </filter>
     <filter-mapping>
         <filter-name>struts2</filter-name>
