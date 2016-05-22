@@ -4,9 +4,12 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.ssh1.service.TwilioSmsService;
 import com.twilio.sdk.TwilioRestException;
 import org.apache.struts2.convention.annotation.Action;
+import org.apache.struts2.convention.annotation.InterceptorRef;
 import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.List;
 
 /**
  * Created by fishzhe on 5/21/16.
@@ -20,18 +23,25 @@ public class TwilioSmsAction extends ActionSupport {
     @Autowired
     private TwilioSmsService twilioSmsService;
 
-    @Action(value = "sendSms", results = {
-            @Result(name = SUCCESS, type = "redirectAction", location = "listUser"),
-            @Result(name = INPUT, location = "/index.jsp")
-    })
+    @Action(value = "sendSms",
+            interceptorRefs = {
+                    @InterceptorRef(value = "store", params = {"operationMode", "STORE"}),
+                    @InterceptorRef(value = "defaultStack")
+            },
+            results = {
+                    @Result(name = SUCCESS, type = "redirectAction", location = "listUser"),
+                    @Result(name = INPUT, type="redirectAction", location = "listUser")
+            }
+    )
     public String sendSms() {
         try {
-            to = to.replaceAll("[^0-9]", "");
             twilioSmsService.sendSMS(to, message);
         } catch (TwilioRestException e) {
-            e.printStackTrace(); // TODO: 5/21/16  handle exception
+            e.printStackTrace(); // TODO: send error email to me.
+            this.addActionError("Sorry, something is off, please contact fishzhe@gmail.com");
             return INPUT;
         }
+        this.addActionMessage("Message Sent!");
         return SUCCESS;
     }
 

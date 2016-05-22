@@ -4,6 +4,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.ssh1.model.User;
 import com.ssh1.service.UserService;
 import org.apache.struts2.convention.annotation.Action;
+import org.apache.struts2.convention.annotation.InterceptorRef;
 import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,10 +40,15 @@ public class UserAction extends ActionSupport {
     @Autowired
     private UserService userService;
 
-    @Action(value = "listUser", results = {
-            @Result(name = SUCCESS, location = "/index.jsp"),
-            @Result(name = INPUT, location = "/index.jsp")
-    })
+    @Action(value = "listUser",
+            interceptorRefs = {
+                    @InterceptorRef(value = "store", params = {"operationMode", "RETRIEVE"})
+            },
+            results = {
+                    @Result(name = SUCCESS, location = "/index.jsp"),
+                    @Result(name = INPUT, location = "/index.jsp")
+            }
+    )
     public String listUser() {
         users = userService.listAllUser();
         return SUCCESS;

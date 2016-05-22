@@ -44,11 +44,17 @@
 
         })
     </script>
+    <style type="text/css">
+        .container{
+            margin-top: 4%;
+        }
+    </style>
 </head>
 <body>
+<div class="container">
 <!--TODO: add a list user action.-->
-<div id="saveUserContainer" class="form-group" style="width:60%; margin-top: 20px; margin-left: 20px">
-    <form action="saveUser" method="post" data-toggle="validator" role="form">
+    <div id="saveUserContainer" class="form-group col-md-9 col-md-offset-right-3 col-sm-9 col-sm-offset-right-3" >
+        <form action="saveUser" method="post" data-toggle="validator" role="form">
         <div class="form-group row">
             <label for="name" class="col-sm-2 form-control-label">Name: </label>
             <div class="col-sm-10">
@@ -70,41 +76,53 @@
             </div>
         </div>
     </form>
-</div>
-<table id="listUserContainer" class="table table-striped table-hover table-condensed table-responsive"
-       style="margin-top: 10px; margin-left: 20px; margin-right: 20px; width: 60%">
-        <tr>
-            <td> Name </td>
-            <td> Phone </td>
-            <td> Delete </td>
-            <td> Update </td>
-            <td> Send SMS </td>
-        </tr>
-
-        <s:iterator value="users" status="userStatus" var="user">
-            <tr>
-                <form action="saveUser" method="POST">
-                    <td>
-                        <input type="hidden" name="user.id" value="<s:property value="#user.id"/>"/>
-                        <input class="form-control" type="text" name="user.name" value="<s:property value="#user.name" />"/>
-                    </td>
-                    <td>
-                        <input class="form-control form-user-phone"
-                               data-country="US" type="text" name="user.phone" value="<s:property value="#user.phone"/>"/>
-                    </td>
-                    <td>
-                        <a class="btn btn-warning" href="deleteUser?user.id=<s:property value="id"/>">Delete User</a>
-                    </td>
-                    <td>
-                        <input class="btn btn-info" type="submit" value="Update User"/>
-                    </td>
-                    <td>
-                        <!-- Trigger the modal with a button -->
-                        <button type="button" class="btn btn-info sendSms">Send SMS</button>
-                    </td>
-                </form>
-            </tr>
-        </s:iterator>
+    </div>
+    <s:if test="hasActionMessages()">
+    <div class="alert alert-success col-md-9 col-md-offset-right-3 col-sm-9 col-sm-offset-right-3">
+        <s:actionmessage/>
+    </div>
+    </s:if>
+    <s:if test="hasActionErrors()">
+    <div class="alert alert-danger col-md-9 col-md-offset-right-3 col-sm-9 col-sm-offset-right-3">
+        <s:actionerror/>
+    </div>
+    </s:if>
+    <s:if test="users">
+        <div class="col-md-9 col-md-offset-right-3 col-sm-9 col-sm-offset-right-3">
+            <table id="listUserContainer" class="table table-striped table-hover table-condensed table-responsive">
+                <tr>
+                    <td> Name </td>
+                    <td> Phone </td>
+                    <td> Delete </td>
+                    <td> Update </td>
+                    <td> Send SMS </td>
+                </tr>
+                <s:iterator value="users" status="userStatus" var="user">
+                    <tr>
+                        <form action="saveUser" method="POST">
+                            <td>
+                                <input type="hidden" name="user.id" value="<s:property value="#user.id"/>"/>
+                                <input class="form-control" type="text" name="user.name" value="<s:property value="#user.name" />"/>
+                            </td>
+                            <td>
+                                <input class="form-control form-user-phone"
+                                       data-country="US" type="text" name="user.phone" value="<s:property value="#user.phone"/>"/>
+                            </td>
+                            <td>
+                                <a class="btn btn-warning" href="deleteUser?user.id=<s:property value="id"/>">Delete User</a>
+                            </td>
+                            <td>
+                                <input class="btn btn-info" type="submit" value="Update User"/>
+                            </td>
+                            <td>
+                                <!-- Trigger the modal with a button -->
+                                <button type="button" class="btn btn-info sendSms">Send SMS</button>
+                            </td>
+                        </form>
+                    </tr>
+                </s:iterator>
+            </table>
+        </div>
 
     <!--TODO: looks ugly now. Make it looks better. -->
     <!-- Modal -->
@@ -143,6 +161,9 @@
 
         </div>
     </div>
-</table>
+
+</s:if>
+</div>
+
 </body>
 </html>
