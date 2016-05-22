@@ -6,6 +6,6 @@ package com.ssh1.service;
 public interface TwilioService {
     String ACCOUNT_ID_TEST = "ACCXXXX";
     String ACCOUNT_TOKEN_TEST = "ACXXX";
-    String FROM = "12016133372";
+    String FROM = "XXXXX";
 
 }
