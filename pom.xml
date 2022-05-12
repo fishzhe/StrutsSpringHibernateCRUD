@@ -9,7 +9,7 @@
   <url>http://maven.apache.org</url>
 
   <properties>
-    <struts2.version>2.2.1</struts2.version>
+    <struts2.version>2.5.30</struts2.version>
     <spring.verion>4.2.5.RELEASE</spring.verion>
     <hibernate.version>5.0.7.FINAL</hibernate.version>
   </properties>
